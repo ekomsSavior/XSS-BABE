@@ -1,3 +1,25 @@
+#!/usr/bin/env python3
+
+print(r'''
+XXXXXXX       XXXXXXX   SSSSSSSSSSSSSSS    SSSSSSSSSSSSSSS      BBBBBBBBBBBBBBBBB               AAA               BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE
+X:::::X       X:::::X SS:::::::::::::::S SS:::::::::::::::S     B::::::::::::::::B             A:::A              B::::::::::::::::B  E::::::::::::::::::::E
+X:::::X       X:::::XS:::::SSSSSS::::::SS:::::SSSSSS::::::S     B::::::BBBBBB:::::B           A:::::A             B::::::BBBBBB:::::B E::::::::::::::::::::E
+X::::::X     X::::::XS:::::S     SSSSSSSS:::::S     SSSSSSS     BB:::::B     B:::::B         A:::::::A            BB:::::B     B:::::BEE::::::EEEEEEEEE::::E
+XXX:::::X   X:::::XXXS:::::S            S:::::S                   B::::B     B:::::B        A:::::::::A             B::::B     B:::::B  E:::::E       EEEEEE
+   X:::::X X:::::X   S:::::S            S:::::S                   B::::B     B:::::B       A:::::A:::::A            B::::B     B:::::B  E:::::E             
+    X:::::X:::::X     S::::SSSS          S::::SSSS                B::::BBBBBB:::::B       A:::::A A:::::A           B::::BBBBBB:::::B   E::::::EEEEEEEEEE   
+     X:::::::::X       SS::::::SSSSS      SS::::::SSSSS           B:::::::::::::BB       A:::::A   A:::::A          B:::::::::::::BB    E:::::::::::::::E   
+     X:::::::::X         SSS::::::::SS      SSS::::::::SS         B::::BBBBBB:::::B     A:::::A     A:::::A         B::::BBBBBB:::::B   E:::::::::::::::E   
+    X:::::X:::::X           SSSSSS::::S        SSSSSS::::S        B::::B     B:::::B   A:::::AAAAAAAAA:::::A        B::::B     B:::::B  E::::::EEEEEEEEEE   
+   X:::::X X:::::X               S:::::S            S:::::S       B::::B     B:::::B  A:::::::::::::::::::::A       B::::B     B:::::B  E:::::E             
+XXX:::::X   X:::::XXX            S:::::S            S:::::S       B::::B     B:::::B A:::::AAAAAAAAAAAAA:::::A      B::::B     B:::::B  E:::::E       EEEEEE
+X::::::X     X::::::XSSSSSSS     S:::::SSSSSSSS     S:::::S     BB:::::BBBBBB::::::BA:::::A             A:::::A   BB:::::BBBBBB::::::BEE::::::EEEEEEEE:::::E
+X:::::X       X:::::XS::::::SSSSSS:::::SS::::::SSSSSS:::::S     B:::::::::::::::::BA:::::A               A:::::A  B:::::::::::::::::B E::::::::::::::::::::E
+X:::::X       X:::::XS:::::::::::::::SS S:::::::::::::::SS      B::::::::::::::::BA:::::A                 A:::::A B::::::::::::::::B  E::::::::::::::::::::E
+XXXXXXX       XXXXXXX SSSSSSSSSSSSSSS    SSSSSSSSSSSSSSS        BBBBBBBBBBBBBBBBBAAAAAAA                   AAAAAAABBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEE
+''')
+
+
 from flask import Flask, request, render_template, send_from_directory, jsonify
 import os
 import datetime
