@@ -1,5 +1,3 @@
-# XSS-BABE
-XSS BABE browser based implant system xo
 # XSS Babe – by ekoms savior
 
 **XSS Babe** is a browser-based red team implant system built entirely in JavaScript and Python. It is designed for ethical cybersecurity research, browser exploitation simulation, and educational purposes. XSS Babe dynamically loads multiple payload modules into a victim's browser using a single script tag.
@@ -10,29 +8,29 @@ This tool is ideal for understanding the power of XSS-based post-exploitation, t
 
 ## Features
 
-- Keylogger with live keystroke logging
-- JavaScript-based reverse shell command execution
-- Screenshot capture using HTML2Canvas
-- Fingerprinting (user-agent, screen resolution, timezone)
-- Browser recon and port scanning
-- Clipboard capture
-- Webcam access prompt
-- Browser history profiling
-- Password bait module with fake login form
-- Download button that serves real payloads
-- Cross-tab messaging to capture user activity across tabs
-- Dynamic auto-loader that pulls all modules from the server
-- Optional Discord webhook alerts for real-time victim beacons
-- Dashboard interface for viewing logs
+- Keylogger with live keystroke logging  
+- JavaScript-based reverse shell command execution  
+- Screenshot capture using HTML2Canvas  
+- Fingerprinting (user-agent, screen resolution, timezone)  
+- Browser recon and port scanning  
+- Clipboard capture  
+- Webcam access prompt  
+- Browser history profiling  
+- Password bait module with fake login form  
+- Download button that serves real payloads  
+- Cross-tab messaging to capture user activity across tabs  
+- Dynamic auto-loader that pulls all modules from the server  
+- Optional Discord webhook alerts for real-time victim beacons  
+- Dashboard interface for viewing logs  
 
 ---
 
 ## Prerequisites
 
-- Python 3
-- Pip (`pip3`)
-- Ngrok account (free) and binary installed: https://ngrok.com/download
-- A basic understanding of using the terminal
+- Python 3  
+- Pip (`pip3`)  
+- A Ngrok account (free) and binary installed  
+- A basic understanding of using the terminal  
 
 ---
 
@@ -51,19 +49,40 @@ This tool is ideal for understanding the power of XSS-based post-exploitation, t
    ./setup_repo.sh
    ```
 
-3. **Start Ngrok**
-   You’ll use this to expose your local Flask server to the public:
-   ```bash
-   ngrok http 5000
-   ```
+---
 
-4. **Copy your Ngrok domain**
-   Ngrok will give you a domain like:
-   ```
-   https://abc123.ngrok.io
-   ```
+##  Ngrok Setup Instructions (Full Walkthrough)
 
-   Use this domain in all injected payloads and external links.
+To run XSS Babe over the internet, you’ll need to tunnel the server using **Ngrok**.
+
+** Step 1: Install Ngrok** — Download the binary from [https://ngrok.com/download](https://ngrok.com/download). For Kali Linux or Debian-based systems:  
+```bash
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-amd64.zip
+unzip ngrok-stable-linux-amd64.zip
+sudo mv ngrok /usr/local/bin/
+```
+
+** Step 2: Sign Up & Get Your Auth Token** — Create a free account at [https://ngrok.com/signup](https://ngrok.com/signup), then copy your token from [https://dashboard.ngrok.com/get-started/setup](https://dashboard.ngrok.com/get-started/setup) and run:  
+```bash
+ngrok config add-authtoken YOUR_AUTHTOKEN_HERE
+```
+
+** Step 3: Start the Flask Server** — From your project directory, run:  
+```bash
+python3 server.py
+```
+
+** Step 4: Start Ngrok Tunnel** — In a new terminal window:
+```bash
+ngrok http 5000
+```
+
+Ngrok will give you a public URL like:
+```
+https://abc123.ngrok.io
+```
+
+Use this domain in all injected payloads and external links.
 
 ---
 
@@ -114,13 +133,13 @@ The shell module fetches commands every 2 seconds and executes them silently.
 
 Once a victim is hooked:
 
-- Do not spam alert boxes — this creates suspicion
-- Use the `shell.js` module to run background JS tasks
-- Use `password_bait.js` to simulate login prompts during inactivity
-- Use `tab_messenger.js` to track movement between tabs
-- Avoid reloading the browser tab — that will clear JS execution
-- Track screenshots, clipboard, keystrokes, and tabs in real-time
-- Use Discord webhook alerts to notify you when a browser is hooked
+- Do not spam alert boxes — this creates suspicion  
+- Use the `shell.js` module to run background JS tasks  
+- Use `password_bait.js` to simulate login prompts during inactivity  
+- Use `tab_messenger.js` to track movement between tabs  
+- Avoid reloading the browser tab — that will clear JS execution  
+- Track screenshots, clipboard, keystrokes, and tabs in real-time  
+- Use Discord webhook alerts to notify you when a browser is hooked  
 
 ---
 
@@ -128,10 +147,10 @@ Once a victim is hooked:
 
 XSS Babe delivers **real payloads**. You may place the following in your `/payloads` folder:
 
-- `reverse_shell.zip` – zipped payload
-- `chrome_patch.exe` – real malicious binary for simulation
-- `malware_scan_tool.apk` – Android APK for testing on phones
-- `password_list.txt` – used in bait or as decoy
+- `reverse_shell.zip` – zipped payload  
+- `chrome_patch.exe` – real malicious binary for simulation  
+- `malware_scan_tool.apk` – Android APK for testing on phones  
+- `password_list.txt` – used in bait or as decoy  
 
 In `fake_download.js`, change the download URL to your real payload:
 ```js
@@ -146,14 +165,14 @@ Use only in controlled environments and with full authorization.
 
 Tips and tricks for best results:
 
-- Restart `server.py` after editing Python or JS files
-- Add or remove modules by editing `static/x.js`
-- Log files are stored in `logs/victims.txt`
-- Add your real payloads to the `/payloads` directory
-- Customize `dashboard.html` to match your engagement branding
-- Keep `.gitignore` in place to avoid pushing payloads or logs to GitHub
-- Check browser CSP headers — some sites block external scripts
-- Use Ngrok TLS (`https://`) to avoid mixed content blocking
+- Restart `server.py` after editing Python or JS files  
+- Add or remove modules by editing `static/x.js`  
+- Log files are stored in `logs/victims.txt`  
+- Add your real payloads to the `/payloads` directory  
+- Customize `dashboard.html` to match your engagement branding  
+- Keep `.gitignore` in place to avoid pushing payloads or logs to GitHub  
+- Check browser CSP headers — some sites block external scripts  
+- Use Ngrok TLS (`https://`) to avoid mixed content blocking  
 
 ---
 
@@ -196,19 +215,14 @@ xss_babe/
 XSS Babe is an offensive security research tool.
 
 It is intended only for use in:
-- Your own labs
-- Authorized red team engagements
-- Security training environments
+- Your own labs  
+- Authorized red team engagements  
+- Security training environments  
 
-Never deploy XSS Babe on a live system without explicit written permission. Misuse of this tool may be illegal.
+Never deploy XSS Babe on a live system without explicit written permission. 
+Misuse of this tool may be illegal.
+the user assumes all risk when using this tool. 
+ekomsSavior provides this tool without warranty.
 
 ---
 
-## About
-
-Built by **ekoms savior**, part of the **Team EVA** and **JeanGrey** ecosystem.  
-XSS Babe is here to teach, empower, and arm defenders and ethical hackers with knowledge of how browsers can be abused.  
-
-If you find bugs, want to contribute, or need help — open a GitHub issue or fork and build your own version of XSS Babe.
-
-**For research. For education. For Trinity.**
