@@ -1,6 +1,6 @@
 # XSS BABE – by ekomsSavior
 
-**XSS Babe** is a browser-based red team implant system built entirely in JavaScript and Python. It is designed for ethical cybersecurity research, browser exploitation simulation, and educational purposes. XSS Babe dynamically loads multiple payload modules into a victim's browser using a single script tag.
+**XSS BABE** is a browser-based red team implant system built entirely in JavaScript and Python. It is designed for ethical cybersecurity research, browser exploitation simulation, and educational purposes. XSS Babe dynamically loads multiple payload modules into a victim's browser using a single script tag.
 
 This tool is ideal for understanding the power of XSS-based post-exploitation, teaching students browser abuse tactics, and building real-time control panels for red team operations.
 
@@ -38,7 +38,7 @@ This tool is ideal for understanding the power of XSS-based post-exploitation, t
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ekomsSavior/xss_babe.git
+   git clone https://github.com/ekomsSavior/XSS-BABE.git
    cd xss_babe
    ```
 
