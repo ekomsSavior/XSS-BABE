@@ -17,7 +17,7 @@ You are solely responsible for how you use this software.
 
 ```bash
 git clone https://github.com/ekomsSavior/XSS-BABE.git
-cd xss_babe
+cd XSS-BABE
 ```
 
 ### 2. Install Dependencies
