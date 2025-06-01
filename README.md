@@ -1,4 +1,4 @@
-# XSS BABE
+# XSS BABE 🖤
 
 XSS Babe is a red team tool for exploiting XSS vulnerabilities in real time. It automates payload delivery, logs sessions, and enables live browser-based attacks from a command-line interface. Built for ethical hacking, phishing research, and security education.
 
