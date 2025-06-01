@@ -12,31 +12,6 @@ User assumes all risks when using this tool.
 
 ekomsSavior provides this tool without warranty. 
  
- ---
-
-##  File Structure
-
-```
-xss_babe/
-├── xss_babe_cli.py             # Main interactive CLI launcher
-├── server.py                   # Flask backend serving modules and payloads
-├── requirements.txt            # Python dependencies
-├── static/
-│   ├── x.js                    # Main XSS loader script
-│   └── modules/                # Individual attack modules
-│       ├── auto_cookie_steal.js
-│       ├── clipboard.js
-│       ├── cross_tab_messaging_spy.js
-│       ├── discord_logger.js
-│       ├── fake_download.js
-│       ├── history_stealer.js
-│       ├── keylogger.js
-│       └── password_bait.js
-├── utils/
-│   └── save_to_txt.py          # Optional utilities for saving session data
-└── session_reports/
-    └── example_report          # Placeholder file to preserve folder
-```
 
 ---
 
