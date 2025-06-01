@@ -1,0 +1,13 @@
+# === XSS BABE CLI Requirements ===
+
+# Web server and routing
+flask==2.3.3
+
+# HTTP requests (used for Ngrok API calls)
+requests==2.31.0
+
+# Optional: for async Discord webhooks in the future
+aiohttp==3.9.5
+
+# Optional: real-time event loop support (if expanding later)
+uvicorn==0.29.0
