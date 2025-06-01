@@ -16,7 +16,7 @@ You are solely responsible for how you use this software.
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/ekomsSavior/xss_babe.git
+git clone https://github.com/ekomsSavior/XSS-BABE.git
 cd xss_babe
 ```
 
