@@ -26,8 +26,9 @@ def start_flask_server():
     return subprocess.Popen(["python3", SERVER_FILE])
 
 def start_ngrok():
-    print("[+] Launching Ngrok tunnel...")
-    subprocess.Popen([NGROK_PATH, "http", NGROK_PORT])
+    print("[+] Launching Ngrok tunnel in new terminal window...")
+    # Launch ngrok in a separate terminal window
+    subprocess.Popen(['x-terminal-emulator', '-e', f'{NGROK_PATH} http {NGROK_PORT}'])
     time.sleep(5)
     try:
         url = requests.get("http://localhost:4040/api/tunnels").json()["tunnels"][0]["public_url"]
