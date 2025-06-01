@@ -24,8 +24,8 @@ cd XSS-BABE
 
 ```bash
 sudo apt update
-sudo apt install python3 python3-pip unzip -y
-pip3 install -r requirements.txt
+sudo apt install python3 unzip -y
+sudo apt install python3-flask python3-pyngrok -y
 ```
 
 ### 3. Install Ngrok
