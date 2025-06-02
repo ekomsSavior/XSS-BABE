@@ -2,7 +2,7 @@
 
 XSS Babe is a tool for exploiting XSS vulnerabilities in real time. 
 It automates delivery, tracking, and payload interaction through a live command-line interface. 
-
+*this tool is functional but still a work in progress, should be done with the final touches in the xest few days xx0xx
 ## ⚠️ Legal Disclaimer
 
 This tool is for educational and ethical penetration testing only. 
