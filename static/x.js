@@ -16,6 +16,8 @@ let scripts = [
 
 scripts.forEach(file => {
   let s = document.createElement('script');
-  s.src = `static/modules/${file}`;
+  // Use absolute path so modules load correctly when x.js is referenced
+  // from the root of the server.
+  s.src = `/static/modules/${file}`;
   document.head.appendChild(s);
 });
