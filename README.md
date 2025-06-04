@@ -63,7 +63,7 @@ python3 xss_babe_cli.py
 - Auto-launches the Flask server and Ngrok
 - Injects `x.js` loader into your payload
 - Displays a live menu of attack modules
-- Logs all browser events and saves session results in `sessions/`
+- Logs all browser events and saves session results in `session_reports/`
 
 ---
 
@@ -79,46 +79,51 @@ Use the Ngrok URL + this payload in the vulnerable input:
 
 ## Modules List
 
-| Module            | Description                                      |
-|-------------------|--------------------------------------------------|
-| keylogger         | Records keystrokes in real time                  |
-| fake_login        | Displays fake login form for credential capture  |
-| clipboard         | Dumps contents of the victim’s clipboard         |
-| auto_cookie_steal | Extracts document cookies silently               |
-| browser_history   | Reads browser history if accessible              |
-| download_bait     | Triggers fake file downloads (ZIP/PDF/etc)       |
-| fingerprint       | Collects user-agent, screen size, timezone       |
-| screenshot        | Captures visual screenshot using HTML2Canvas     |
-| recon             | Loads iframe ports and resources for open recon  |
-| cross_tab_spy     | Detects and tracks multiple open tabs            |
+| Module                   | Description                                              | Status        |
+|--------------------------|----------------------------------------------------------|--------------|
+| `keylogger`              | Records keystrokes in real time                          |  Live        |
+| `fake_login`             | Displays fake login form for credential capture          |  Coming Soon |
+| `clipboard`              | Dumps contents of the victim’s clipboard                 |  Live        |
+| `auto_cookie_steal`      | Extracts document cookies silently                       |  Live        |
+| `browser_history`        | Reads browser history if accessible                      |  Coming Soon |
+| `fake_download`          | Prompts a fake download and logs the click               |  Live        |
+| `fingerprint`            | Collects user-agent, screen size, timezone               |  Coming Soon |
+| `screenshot`             | Captures a visual screenshot using HTML2Canvas           |  Coming Soon |
+| `recon`                  | Loads iframe ports and resources for open recon          |  Coming Soon |
+| `cross_tab_spy`          | Detects and tracks multiple open tabs                    |  Coming Soon |
+| `cross_tab_messaging_spy`| Reports other open tabs and focus changes                |  Live        |
+| `discord_logger`         | Sends a page load alert to a Discord webhook             |  Live        |
+| `password_bait`          | Displays a fake password prompt to capture credentials   |  Live        |
 
 ---
 
 ## File Structure
 
-```
-xss_babe/
-├── xss_babe_cli.py             # Main interactive CLI
-├── server.py                   # Flask server for payload delivery
-├── requirements.txt            # Python dependencies
-├── static/
-│   ├── x.js                    # XSS loader script
-│   └── modules/
-│       ├── keylogger.js
-│       ├── fake_login.js
-│       ├── clipboard.js
-│       ├── auto_cookie_steal.js
-│       ├── browser_history.js
-│       ├── download_bait.js
-│       ├── fingerprint.js
-│       ├── screenshot.js
-│       ├── recon.js
-│       └── cross_tab_spy.js
-├── utils/
-│   └── save_to_txt.py          # Helper to save session info
-└── sessions/
-    └── [timestamp].txt         # Auto-generated session logs
-```
+- `xss_babe/`
+  - `xss_babe_cli.py` – Main interactive CLI
+  - `server.py` – Flask server for payload delivery
+  - `requirements.txt` – Python dependencies
+  - `static/`
+    - `x.js` – XSS loader script
+    - `modules/`
+      - `auto_cookie_steal.js`
+      - `clipboard.js`
+      - `cross_tab_messaging_spy.js`
+      - `discord_logger.js`
+      - `fake_download.js`
+      - `history_stealer.js`
+      - `keylogger.js`
+      - `password_bait.js`
+      - `fake_login.js` *(coming soon)*
+      - `browser_history.js` *(coming soon)*
+      - `fingerprint.js` *(coming soon)*
+      - `screenshot.js` *(coming soon)*
+      - `recon.js` *(coming soon)*
+      - `cross_tab_spy.js` *(coming soon)*
+  - `utils/`
+    - `save_to_txt.py` – Helper to save session info
+  - `session_reports/`
+    - `[timestamp].txt` – Auto-generated session logs
 
 ---
 
@@ -127,7 +132,7 @@ xss_babe/
 All session output (payloads used, timestamps, logs) are saved to:
 
 ```
-sessions/YYYY-MM-DD-HHMMSS.txt
+session_reports/YYYY-MM-DD-HHMMSS.txt
 ```
 
 ---
